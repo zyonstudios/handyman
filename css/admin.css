@@ -1,0 +1,610 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 30px;
+}
+.mobile-dashboard-lnk{
+    width:100%;
+    margin:0;
+    display: none;
+}
+.sidebar h4 {
+    margin-bottom: 20px; /* Space below heading */
+    text-align: center; /* Center heading text */
+    font-size: 18px; /* Font size for heading */
+}
+
+.sidebar ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+}
+
+.sidebar ul li {
+    margin: 10px 0; /* Space between list items */
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text color */
+    display: flex; /* Flex layout for alignment */
+    align-items: center; /* Center icons and text vertically */
+    padding: 10px; /* Padding for clickable area */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.sidebar ul li a:hover {
+    background-color: #34495E; /* Change background on hover */
+}
+
+.sidebar ul li a i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 16px; /* Icon size */
+}
+
+/* Main content area */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.add-service {
+    margin-bottom: 20px;
+}
+
+/* Services List */
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.service-item .editServiceBtn,
+.service-item .deleteServiceBtn {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.service-item .deleteServiceBtn {
+    background-color: #e74c3c;
+}
+
+.service-item button:hover {
+    opacity: 0.9;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 100px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-content .form-group label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.modal-content .form-group input,
+.modal-content .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    font-size: 1rem;
+}
+
+.modal-content .form-group textarea {
+    height: 150px;
+}
+
+.submit-btn {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submit-btn:hover {
+    background-color: #1e8449;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+       display: none;   
+    }
+
+   .mobile-dashboard-lnk{
+    display: flex;
+    background: #3125a0;
+    color: #fff;
+    padding:15px;
+    justify-content: center;
+    align-items: center;
+   }
+   .mobile-dashboard-lnk a{
+    text-decoration: none;
+    color: #fff;
+   }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .service-item {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Modal background */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+}
+
+/* Form Styling */
+#headerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#headerForm .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#headerForm label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#headerForm input[type="tel"], 
+#headerForm select, 
+#headerForm input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+#headerForm input[type="tel"]:focus, 
+#headerForm select:focus, 
+#headerForm input[type="file"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#headerForm small {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Logo Upload Styling */
+.logo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.file-input {
+    display: none;
+    font-size: 14px;
+    padding: 8px;
+}
+
+#logo_preview {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#logo_preview:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    #headerForm {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .logo-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+/* Form Container */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Label Styling */
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Text Inputs and Select Fields */
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {   
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+/* Textarea Styling */
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Focus State for Inputs */
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Image Upload and Preview */
+#aboutus_image_preview {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#aboutus_image_preview:hover {
+    transform: scale(1.05);
+}
+
+/* File Input Hidden */
+#image {
+    display: none;
+}
+
+/* Submit Button */
+form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #aboutus_image_preview {
+        width: 100px;
+    }
+}
+
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+td {
+    background-color: #fff;
+    color: #333;
+}
+
+tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+tr.unread td {
+    font-weight: bold;
+    background-color: #e7f3ff;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Hidden content row */
+tr.content-hidden {
+    display: none;
+}
+
+tr.content-hidden td {
+    background-color: #f9f9f9;
+}
+
+/* Archive Button */
+.archive-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.archive-btn:hover {
+    background-color: #218838;
+}
+
+/* Pagination Styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: #007bff;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: #fff;
+    pointer-events: none;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    .archive-btn {
+        padding: 6px 10px;
+    }
+
+    .pagination a {
+        padding: 8px 10px;
+    }
+}
+
+form input{
+    height: 25px;    
+}
+
+
+
